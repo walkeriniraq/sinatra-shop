@@ -1,0 +1,61 @@
+.title_listing {
+    border: 1px solid lightgray;
+    margin: 10px;
+    padding: 5px;
+}
+
+.book_image {
+    height: 50px;
+    width: 50px;
+    float: left;
+}
+
+#details_pane {
+    margin-top: 40px;
+}
+
+.title_text {
+    margin-left: 10px;
+    float: left;
+}
+
+.price_and_quantity {
+    text-align: right;
+}
+
+.price_and_quantity .lead {
+    margin-bottom: 0px;
+}
+
+.low_quantity {
+    color: red;
+}
+
+.center {
+    display: block;
+    margin: auto;
+    text-align: center;
+    width: 200px;
+}
+
+.title_description {
+    clear: both;
+    padding: 10px;
+}
+
+.title_review {
+    background-color: #e7e7e7;
+    border: 1px solid lightgray;
+    margin: 15px 0;
+    padding: 7px 12px;
+}
+
+.review_date {
+    float: right;
+}
+
+.favorite_block {
+    color: darkgreen;
+    font-weight: bold;
+    font-size: larger;
+}

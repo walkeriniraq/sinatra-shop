@@ -1,0 +1,13 @@
+<div class="review_stars" title="<%= stars %>">
+  <% if stars != 0 %>
+    <% 5.times.each do |num| %>
+      <% if stars > num %>
+        <i class="icon-star"></i>
+      <% else %>
+        <i class="icon-star-empty"></i>
+      <% end %>
+    <% end %>
+  <% else %>
+    No reviews.
+  <% end %>
+</div>

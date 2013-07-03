@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+    <link rel='stylesheet' type='text/css' href='css/bootstrap.min.css'/>
+    <script type='text/javascript' src='js/jquery-2.0.1.min.js'></script>
+    <script type='text/javascript' src='js/knockout-2.2.1.js'></script>
+    <script type='text/javascript' src='js/bootstrap.min.js'></script>
+    <script type='text/javascript' src='js/login.js'></script>
+</head>
+<body class="container">
+<h1><img src="img/logo.png"/> Login</h1>
+Select user for testing purposes:
+<div>
+    <select data-bind="
+                    options: user_list,
+                    optionsText: function(item) {
+                        return item.username;
+                    },
+                    value: selected_user">
+
+    </select>
+</div>
+<button data-bind="visible: selected_user" id="login_button">Login</button>
+</body>
+</html>

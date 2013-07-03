@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= title.name %></title>
+  <link rel='stylesheet' type='text/css' href='/css/bootstrap.min.css'/>
+  <link rel='stylesheet' type='text/css' href='/css/main.css'/>
+  <script type='text/javascript' src='/js/jquery-2.0.1.min.js'></script>
+  <script type='text/javascript' src='/js/knockout-2.2.1.js'></script>
+  <script type='text/javascript' src='/js/bootstrap.min.js'></script>
+  <script type='text/javascript' src='/js/detail.js'></script>
+  <script type='text/javascript'>
+    //  Set the favorite value
+    window.details.username('<%= user.andand.username %>');
+    window.details.favorite(<%= user.andand.favorites.andand.include? title %>);
+  </script>
+</head>
+<body class="container">
+<h1><img src="/img/logo.png"/>Books</h1>
+
+<div id="details_pane">
+  <img class="book_image" src="/img/dniezby_Generic_Book.png"/>
+
+  <div class="title_text clearfix">
+    <div class="lead"><%= title.name %></div>
+    <div><%= title.author %></div>
+    <div><%= title.number_pages %> pages.</div>
+    <%= erb :star_display, :locals => { stars: average_stars } %>
+  </div>
+  <div class="pull-right price_and_quantity clearfix">
+    <div class="lead">$ <%= '%.2f' % title.price %></div>
+    <% case
+         when title.quantity < 1 %>
+      Backordered.
+    <% else %>
+      <%= title.quantity %> left in stock
+    <% end %>
+    <div data-bind="if: username">
+      <button id="remove_from_favs" data-bind="visible: favorite" data-title-id="<%= title.id %>">Remove from Wishlist</button>
+      <button id="add_to_favs" data-bind="visible: !favorite()" data-title-id="<%= title.id %>">Add to Wishlist</button>
+    </div>
+  </div>
+  <div class="title_description">
+    <%= title.description %>
+  </div>
+  <div>
+    <h5>Reviews</h5>
+    <% if title.reviews.empty? %>
+      No reviews.
+    <% end %>
+    <% title.reviews.each do |review| %>
+      <div class="title_review">
+        <span class="review_user"><%= review.reviewer %></span>
+        <span class="review_date"><%= review.date %></span>
+
+        <%= erb :star_display, :locals => { stars: review.stars } %>
+        <div class="review_text"><%= review.text %></div>
+      </div>
+    <% end %>
+  </div>
+</div>
+</body>
+</html>

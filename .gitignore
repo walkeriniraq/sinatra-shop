@@ -2,6 +2,7 @@
 *.rbc
 .bundle
 .config
+*.iml
 coverage
 InstalledFiles
 lib/bundler/man
@@ -12,7 +13,4 @@ test/tmp
 test/version_tmp
 tmp
 
-# YARD artifacts
-.yardoc
-_yardoc
-doc/
+test.db

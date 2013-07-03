@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Books</title>
+    <link rel='stylesheet' type='text/css' href='/css/bootstrap.min.css'/>
+    <link rel='stylesheet' type='text/css' href='/css/main.css'/>
+    <script type='text/javascript' src='/js/jquery-2.0.1.min.js'></script>
+    <script type='text/javascript' src='/js/knockout-2.2.1.js'></script>
+    <script type='text/javascript' src='/js/bootstrap.min.js'></script>
+    <script type='text/javascript' src='/js/jquery.history.js'></script>
+    <script type='text/javascript' src='/js/main.js'></script>
+</head>
+<body class="container">
+<div class="pull-right">
+    <a data-bind="visible: !logged_in()" href="/login.html">login</a>
+    <div data-bind="visible: logged_in">
+        <span data-bind="text: user"></span>
+        [ <a href="logout">logout</a> ]
+    </div>
+</div>
+<h1><img src="/img/logo.png"/>Books</h1>
+
+<div data-bind="foreach: current_list">
+    <div class="title_listing clearfix">
+        <img class="book_image" src="/img/dniezby_Generic_Book.png"/>
+
+        <div class="title_text">
+            <a class="lead" data-bind="text: name, attr: { href: 'item/' + id }"></a>
+
+            <div>
+                by <span data-bind="text: author"></span>
+            </div>
+        </div>
+        <div class="pull-right price_and_quantity">
+            <div class="lead">
+                $ <span data-bind="text: price"></span>
+            </div>
+            <span class="low_quantity" data-bind="if: quantity <= 20 && quantity > 0">
+                Only <span data-bind="text: quantity"></span> left in stock
+            </span>
+            <span data-bind="if: quantity < 1">
+                Backorder
+            </span>
+            <div class="favorite_block" data-bind="if: favorite">
+                On your wishlist.
+            </div>
+        </div>
+    </div>
+</div>
+<span class="pull-left" data-bind="visible: has_prev_page"><a id="prev_page" href="previous">previous</a></span>
+<span class="pull-right" data-bind="visible: has_next_page"><a id="next_page" href="next">next</a></span>
+<span class="center">page <span data-bind="text: current_page"></span> of <span data-bind="text: total_pages"></span></span>
+</body>
+</html>
