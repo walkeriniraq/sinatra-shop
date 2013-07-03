@@ -9,6 +9,7 @@ Database.seed_data
 enable :sessions
 set :session_secret, 'THIS IS A REALLY SECRET KEY THAT IS DECENTLY LONG'
 set :protection, { :origin_whitelist => 'https://apps.rylath.net' }
+set :port, 4568
 
 PAGE_SIZE = 10
 
