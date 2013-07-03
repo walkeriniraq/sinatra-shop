@@ -6,9 +6,9 @@
         self.username = ko.observable();
 
         self.change_favorite = function (add_fav, title_id) {
-            var url = '/remove_favorite';
+            var url = '../remove_favorite';
             if (add_fav) {
-                url = '/add_favorite';
+                url = '../add_favorite';
             }
             $.post(url, { title_id: title_id }, function (data) {
                 if (data.status === 'ok') {

@@ -8,13 +8,18 @@ Database.seed_data
 
 enable :sessions
 set :session_secret, 'THIS IS A REALLY SECRET KEY THAT IS DECENTLY LONG'
-set :protection, { :origin_whitelist => 'https://apps.rylath.net' }
+set :protection, { :origin_whitelist => 'http://apps.rylath.net' }
 set :port, 4568
+set :server_relative_root, '/books'
 
 PAGE_SIZE = 10
 
 get '/' do
   erb :index
+end
+
+get '/login_page' do
+  erb :login_page
 end
 
 get '/item/:id' do
@@ -76,7 +81,7 @@ end
 
 get '/logout' do
   session[:user] = nil
-  redirect '/'
+  redirect settings.server_relative_root
 end
 
 # UTILITY METHODS

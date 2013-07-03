@@ -16,7 +16,7 @@
             return !!self.user();
         });
         self.load_data = function (page) {
-            $.getJSON('/list', { page: page }, function (data) {
+            $.getJSON('list', { page: page }, function (data) {
                 self.current_list(data.list);
                 self.total_pages(data.total_pages);
                 self.current_page(data.current_page);
@@ -46,7 +46,7 @@
     $(function () {
         ko.applyBindings(window.books_main);
         window.books_main.load_data(get_page());
-        $.getJSON('/username', function (data) {
+        $.getJSON('username', function (data) {
             if (data.status === 'ok') {
                 window.books_main.user(data.user);
             }

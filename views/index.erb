@@ -2,27 +2,27 @@
 <html>
 <head>
     <title>Books</title>
-    <link rel='stylesheet' type='text/css' href='/css/bootstrap.min.css'/>
-    <link rel='stylesheet' type='text/css' href='/css/main.css'/>
-    <script type='text/javascript' src='/js/jquery-2.0.1.min.js'></script>
-    <script type='text/javascript' src='/js/knockout-2.2.1.js'></script>
-    <script type='text/javascript' src='/js/bootstrap.min.js'></script>
-    <script type='text/javascript' src='/js/jquery.history.js'></script>
-    <script type='text/javascript' src='/js/main.js'></script>
+    <link rel='stylesheet' type='text/css' href='css/bootstrap.min.css'/>
+    <link rel='stylesheet' type='text/css' href='css/main.css'/>
+    <script type='text/javascript' src='js/jquery-2.0.1.min.js'></script>
+    <script type='text/javascript' src='js/knockout-2.2.1.js'></script>
+    <script type='text/javascript' src='js/bootstrap.min.js'></script>
+    <script type='text/javascript' src='js/jquery.history.js'></script>
+    <script type='text/javascript' src='js/main.js'></script>
 </head>
 <body class="container">
 <div class="pull-right">
-    <a data-bind="visible: !logged_in()" href="/login.html">login</a>
+    <a data-bind="visible: !logged_in()" href="login_page">login</a>
     <div data-bind="visible: logged_in">
         <span data-bind="text: user"></span>
         [ <a href="logout">logout</a> ]
     </div>
 </div>
-<h1><img src="/img/logo.png"/>Books</h1>
+<h1><img src="img/logo.png"/>Books</h1>
 
 <div data-bind="foreach: current_list">
     <div class="title_listing clearfix">
-        <img class="book_image" src="/img/dniezby_Generic_Book.png"/>
+        <img class="book_image" src="img/dniezby_Generic_Book.png"/>
 
         <div class="title_text">
             <a class="lead" data-bind="text: name, attr: { href: 'item/' + id }"></a>
